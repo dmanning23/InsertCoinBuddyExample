@@ -67,9 +67,6 @@
     <Compile Include="..\Source\MainMenuScreen.cs">
       <Link>MainMenuScreen.cs</Link>
     </Compile>
-    <Compile Include="..\Source\OptionsScreen.cs">
-      <Link>OptionsScreen.cs</Link>
-    </Compile>
     <Compile Include="..\Source\GameplayScreen.cs">
       <Link>GameplayScreen.cs</Link>
     </Compile>
