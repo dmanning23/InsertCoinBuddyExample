@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ResolutionBuddy;
+using System.Threading;
 
 namespace InsertCoinBuddyExample
 {
@@ -34,7 +35,7 @@ namespace InsertCoinBuddyExample
 		/// </summary>
 		FontBuddy Text;
 
-		CreditsManager _manager;
+		ICreditsManager _creditManager;
 
 		#endregion //Fields
 
@@ -43,10 +44,10 @@ namespace InsertCoinBuddyExample
 		/// <summary>
 		/// Constructor fills in the menu contents.
 		/// </summary>
-		public GameplayScreen(CreditsManager manager)
+		public GameplayScreen(ICreditsManager manager)
 		{
 			TextLocation = new Vector2(Resolution.TitleSafeArea.Center.X, Resolution.TitleSafeArea.Center.Y);
-			_manager = manager;
+			_creditManager = manager;
 			TextDirection = new Vector2(TextVelocity, TextVelocity);
 			Text = new FontBuddy();
 		}
@@ -57,22 +58,15 @@ namespace InsertCoinBuddyExample
 
 		public override void LoadContent()
 		{
-			Text.Font = ScreenManager.Game.Content.Load<SpriteFont>("ArialBlack72");
+			Thread.Sleep(2000);
+			Text.Font = ScreenManager.Game.Content.Load<SpriteFont>(@"Fonts\ArialBlack72");
 		}
 
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
 		{
 			base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
-			//does the uesr want to exit?
-			if (Keyboard.GetState().IsKeyDown(Keys.Space))
-			{
-				//Load the main menu back up
-				LoadingScreen.Load(ScreenManager, false, null, ScreenManager.MainMenuStack());
-
-				//the game isn't playing anymore
-				_manager.GameInPlay = false;
-			}
+			
 
 			//move the text
 			TextLocation += TextDirection;
@@ -114,7 +108,35 @@ namespace InsertCoinBuddyExample
 
 		public void HandleInput(InputState input)
 		{
-			//TODO: handle any input or whatever
+			//Listen for P1 game start...
+			if (input.IsNewKeyPress(Keys.Q))
+			{
+				if (_creditManager.JoinGame(PlayerIndex.One, true))
+				{
+					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_creditManager));
+					_creditManager.GameInPlay = true;
+				}
+			}
+
+			//Listen for P2 game start...
+			if (input.IsNewKeyPress(Keys.W))
+			{
+				if (_creditManager.JoinGame(PlayerIndex.Two, true))
+				{
+					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_creditManager));
+					_creditManager.GameInPlay = true;
+				}
+			}
+
+			//does the uesr want to exit?
+			if (input.IsNewKeyPress(Keys.Space))
+			{
+				//Load the main menu back up
+				LoadingScreen.Load(ScreenManager, true, null, ScreenManager.MainMenuStack());
+
+				//the game isn't playing anymore
+				_creditManager.GameInPlay = false;
+			}
 		}
 
 		#endregion

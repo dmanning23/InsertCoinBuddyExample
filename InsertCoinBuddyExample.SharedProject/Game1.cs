@@ -56,18 +56,6 @@ namespace InsertCoinBuddyExample
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update(GameTime gameTime)
 		{
-			//Listen for game start...
-			if (Keyboard.GetState().IsKeyDown(Keys.W))
-			{
-				//Can we start a game?
-				if (_creditManager.StartGame())
-				{
-					//Clear out all the screens and start a game.
-					LoadingScreen.Load(ScreenManager, false, null, new GameplayScreen(_creditManager));
-					_creditManager.GameInPlay = true;
-				}
-			}
-
 			// TODO: Add your update logic here
 			base.Update(gameTime);
 		}
