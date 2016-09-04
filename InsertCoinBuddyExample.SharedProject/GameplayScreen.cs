@@ -35,7 +35,7 @@ namespace InsertCoinBuddyExample
 		/// </summary>
 		FontBuddy Text;
 
-		ICreditsManager _creditManager;
+		IInsertCoinComponent _insertCoinComponent;
 
 		#endregion //Fields
 
@@ -44,10 +44,10 @@ namespace InsertCoinBuddyExample
 		/// <summary>
 		/// Constructor fills in the menu contents.
 		/// </summary>
-		public GameplayScreen(ICreditsManager manager)
+		public GameplayScreen(IInsertCoinComponent manager)
 		{
 			TextLocation = new Vector2(Resolution.TitleSafeArea.Center.X, Resolution.TitleSafeArea.Center.Y);
-			_creditManager = manager;
+			_insertCoinComponent = manager;
 			TextDirection = new Vector2(TextVelocity, TextVelocity);
 			Text = new FontBuddy();
 		}
@@ -111,20 +111,20 @@ namespace InsertCoinBuddyExample
 			//Listen for P1 game start...
 			if (input.IsNewKeyPress(Keys.Q))
 			{
-				if (_creditManager.JoinGame(PlayerIndex.One, true))
+				if (_insertCoinComponent.JoinGame(PlayerIndex.One, true))
 				{
-					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_creditManager));
-					_creditManager.GameInPlay = true;
+					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_insertCoinComponent));
+					_insertCoinComponent.GameInPlay = true;
 				}
 			}
 
 			//Listen for P2 game start...
 			if (input.IsNewKeyPress(Keys.W))
 			{
-				if (_creditManager.JoinGame(PlayerIndex.Two, true))
+				if (_insertCoinComponent.JoinGame(PlayerIndex.Two, true))
 				{
-					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_creditManager));
-					_creditManager.GameInPlay = true;
+					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_insertCoinComponent));
+					_insertCoinComponent.GameInPlay = true;
 				}
 			}
 
@@ -135,7 +135,7 @@ namespace InsertCoinBuddyExample
 				LoadingScreen.Load(ScreenManager, true, null, ScreenManager.MainMenuStack());
 
 				//the game isn't playing anymore
-				_creditManager.GameInPlay = false;
+				_insertCoinComponent.GameInPlay = false;
 			}
 		}
 

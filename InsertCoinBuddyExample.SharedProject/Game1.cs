@@ -14,7 +14,12 @@ namespace InsertCoinBuddyExample
 		/// <summary>
 		/// The credit manager.
 		/// </summary>
-		private CreditsManager _creditManager;
+		private IInsertCoinComponent _insertCoin;
+
+		/// <summary>
+		/// Component used to save system settings
+		/// </summary>
+		private ISettingsComponent _settings;
 
 		public Game1()
 		{
@@ -23,14 +28,18 @@ namespace InsertCoinBuddyExample
 			var debug = new DebugInputComponent(this, ResolutionBuddy.Resolution.TransformationMatrix);
 
 			//Setup the credits manager.
-			_creditManager = new CreditsManager(this, "coindrop", "gamestart", 3); //$.75 per game
-			Components.Add(_creditManager);
+			_insertCoin = new InsertCoinComponent(this, "coindrop", "gamestart", 3); //$.75 per game
+			Components.Add(_insertCoin);
+
+			//Add the settings manager
+			_settings = new SettingsComponent<SettingsScreen>(this, Keys.K, Buttons.Back);
+			Components.Add(_settings);
 		}
 
 		protected override void LoadContent()
 		{
 			// Activate the first screens.
-			ScreenManager.SetTopScreen(new InsertCoinScreen(@"Fonts\ArialBlack24", @"Fonts\ArialBlack24", _creditManager), null);
+			ScreenManager.SetTopScreen(new InsertCoinScreen(@"Fonts\ArialBlack24", @"Fonts\ArialBlack24", _insertCoin), null);
 
 			base.LoadContent();
 		}

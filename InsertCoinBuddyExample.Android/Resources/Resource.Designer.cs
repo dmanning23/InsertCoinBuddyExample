@@ -36,6 +36,8 @@ namespace InsertCoinBuddyExample.Android
 			global::HadoukInput.Android.Resource.String.Hello = global::InsertCoinBuddyExample.Android.Resource.String.Hello;
 			global::InputHelper.Android.Resource.String.ApplicationName = global::InsertCoinBuddyExample.Android.Resource.String.ApplicationName;
 			global::InputHelper.Android.Resource.String.Hello = global::InsertCoinBuddyExample.Android.Resource.String.Hello;
+			global::InsertCoinBuddy.Android.Resource.String.ApplicationName = global::InsertCoinBuddyExample.Android.Resource.String.ApplicationName;
+			global::InsertCoinBuddy.Android.Resource.String.Hello = global::InsertCoinBuddyExample.Android.Resource.String.Hello;
 			global::MatrixExtensions.Android.Resource.String.ApplicationName = global::InsertCoinBuddyExample.Android.Resource.String.ApplicationName;
 			global::MatrixExtensions.Android.Resource.String.Hello = global::InsertCoinBuddyExample.Android.Resource.String.Hello;
 			global::MenuBuddy.Android.Resource.String.ApplicationName = global::InsertCoinBuddyExample.Android.Resource.String.ApplicationName;

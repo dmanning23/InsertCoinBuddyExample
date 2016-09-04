@@ -18,6 +18,7 @@ Global
 		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{f0f7edb5-e520-44e7-ab47-d57ee136ca36}*SharedItemsImports = 13
 		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{0a61f321-a73c-4a5d-a522-7d7a51fcb64f}*SharedItemsImports = 4
 		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{c9b40b27-24da-4214-90e4-0b6199d698f2}*SharedItemsImports = 4
+		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{605a062b-b866-4134-a71c-f1d87054e6d8}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

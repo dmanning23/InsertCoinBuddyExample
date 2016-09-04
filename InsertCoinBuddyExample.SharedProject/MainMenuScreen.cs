@@ -15,7 +15,7 @@ namespace InsertCoinBuddyExample
 		/// <summary>
 		/// The credit manager.
 		/// </summary>
-		private ICreditsManager _creditManager;
+		private IInsertCoinComponent _insertCoinComponent;
 
 		/// <summary>
 		/// Constructor fills in the menu contents.
@@ -26,7 +26,7 @@ namespace InsertCoinBuddyExample
 
 		public override void LoadContent()
 		{
-			_creditManager = ScreenManager.Game.Services.GetService(typeof(ICreditsManager)) as ICreditsManager;
+			_insertCoinComponent = ScreenManager.Game.Services.GetService(typeof(IInsertCoinComponent)) as IInsertCoinComponent;
 
 
 			base.LoadContent();
@@ -42,20 +42,20 @@ namespace InsertCoinBuddyExample
 			//Listen for P1 game start...
 			if (input.IsNewKeyPress(Keys.Q))
 			{
-				if (_creditManager.StartGame(PlayerIndex.One))
+				if (_insertCoinComponent.StartGame(PlayerIndex.One))
 				{
-					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_creditManager));
-					_creditManager.GameInPlay = true;
+					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_insertCoinComponent));
+					_insertCoinComponent.GameInPlay = true;
 				}
 			}
 
 			//Listen for P2 game start...
 			if (input.IsNewKeyPress(Keys.W))
 			{
-				if (_creditManager.StartGame(PlayerIndex.Two))
+				if (_insertCoinComponent.StartGame(PlayerIndex.Two))
 				{
-					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_creditManager));
-					_creditManager.GameInPlay = true;
+					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_insertCoinComponent));
+					_insertCoinComponent.GameInPlay = true;
 				}
 			}
 		}
