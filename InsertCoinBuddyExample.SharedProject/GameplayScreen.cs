@@ -58,15 +58,13 @@ namespace InsertCoinBuddyExample
 
 		public override void LoadContent()
 		{
-			Thread.Sleep(2000);
+			//Thread.Sleep(2000);
 			Text.Font = ScreenManager.Game.Content.Load<SpriteFont>(@"Fonts\ArialBlack72");
 		}
 
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
 		{
 			base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
-
-			
 
 			//move the text
 			TextLocation += TextDirection;

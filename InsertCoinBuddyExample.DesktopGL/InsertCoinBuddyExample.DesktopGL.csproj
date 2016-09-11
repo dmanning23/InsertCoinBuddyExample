@@ -86,7 +86,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="InsertCoinBuddy.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\InsertCoinBuddy.1.0.14\lib\net451\InsertCoinBuddy.DesktopGL.dll</HintPath>
+      <HintPath>..\packages\InsertCoinBuddy.1.0.16\lib\net451\InsertCoinBuddy.DesktopGL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MatrixExtensions.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -171,12 +171,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\InsertCoinBuddyExample.SharedProject\Settings.db">
-      <Link>Settings.db</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <Content Include="Settings.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
