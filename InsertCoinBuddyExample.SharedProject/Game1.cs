@@ -28,12 +28,11 @@ namespace InsertCoinBuddyExample
 			var debug = new DebugInputComponent(this, ResolutionBuddy.Resolution.TransformationMatrix);
 
 			//Setup the credits manager.
-			_insertCoin = new InsertCoinComponent(this, "coindrop", "gamestart", 3); //$.75 per game
-			Components.Add(_insertCoin);
+			var insertCoin = new InsertCoinComponent(this, "coindrop", "gamestart", 3); //$.75 per game
+			_insertCoin = insertCoin;
 
 			//Add the settings manager
 			_settings = new SettingsComponent<SettingsScreen>(this, Keys.K, Buttons.Back);
-			Components.Add(_settings);
 		}
 
 		protected override void LoadContent()
@@ -77,6 +76,8 @@ namespace InsertCoinBuddyExample
 		{
 			return new IScreen[] { new BackgroundScreen(), new MainMenuScreen() };
 		}
+
+		
 	}
 }
 

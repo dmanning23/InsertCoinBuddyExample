@@ -13,8 +13,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameplayScreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainMenuScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NewChallengerScreen.cs" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
   </ItemGroup>
 </Project>

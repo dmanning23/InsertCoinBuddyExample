@@ -1,4 +1,3 @@
-using System;
 using HadoukInput;
 using InsertCoinBuddy;
 using MenuBuddy;
@@ -27,9 +26,14 @@ namespace InsertCoinBuddyExample
 		public override void LoadContent()
 		{
 			_insertCoinComponent = ScreenManager.Game.Services.GetService(typeof(IInsertCoinComponent)) as IInsertCoinComponent;
-
+			_insertCoinComponent.Credits.OnGameStart += OnStartGame;
 
 			base.LoadContent();
+		}
+
+		public override void UnloadContent()
+		{
+			_insertCoinComponent.Credits.OnGameStart -= OnStartGame;
 		}
 
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
@@ -42,22 +46,19 @@ namespace InsertCoinBuddyExample
 			//Listen for P1 game start...
 			if (input.IsNewKeyPress(Keys.Q))
 			{
-				if (_insertCoinComponent.StartGame(PlayerIndex.One))
-				{
-					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_insertCoinComponent));
-					_insertCoinComponent.GameInPlay = true;
-				}
+				_insertCoinComponent.PlayerButtonPressed(PlayerIndex.One);
 			}
 
 			//Listen for P2 game start...
 			if (input.IsNewKeyPress(Keys.W))
 			{
-				if (_insertCoinComponent.StartGame(PlayerIndex.Two))
-				{
-					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_insertCoinComponent));
-					_insertCoinComponent.GameInPlay = true;
-				}
+				_insertCoinComponent.PlayerButtonPressed(PlayerIndex.Two);
 			}
+		}
+
+		public void OnStartGame(object obj, GameStartEventArgs e)
+		{
+			LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen());
 		}
 	}
 }

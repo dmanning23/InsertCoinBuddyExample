@@ -44,12 +44,13 @@ namespace InsertCoinBuddyExample
 		/// <summary>
 		/// Constructor fills in the menu contents.
 		/// </summary>
-		public GameplayScreen(IInsertCoinComponent manager)
+		public GameplayScreen()
 		{
 			TextLocation = new Vector2(Resolution.TitleSafeArea.Center.X, Resolution.TitleSafeArea.Center.Y);
-			_insertCoinComponent = manager;
 			TextDirection = new Vector2(TextVelocity, TextVelocity);
 			Text = new FontBuddy();
+
+			CoveredByOtherScreens = false;
 		}
 
 		#endregion //Initialization
@@ -58,34 +59,49 @@ namespace InsertCoinBuddyExample
 
 		public override void LoadContent()
 		{
+			base.LoadContent();
+
+			_insertCoinComponent = ScreenManager.Game.Services.GetService(typeof(IInsertCoinComponent)) as IInsertCoinComponent;
+			_insertCoinComponent.Credits.OnGameStart += OnStartGame;
+
 			//Thread.Sleep(2000);
 			Text.Font = ScreenManager.Game.Content.Load<SpriteFont>(@"Fonts\ArialBlack72");
+		}
+
+		public override void UnloadContent()
+		{
+			base.UnloadContent();
+
+			_insertCoinComponent.Credits.OnGameStart -= OnStartGame;
 		}
 
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
 		{
 			base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
-			//move the text
-			TextLocation += TextDirection;
+			if (HasFocus)
+			{
+				//move the text
+				TextLocation += TextDirection;
 
-			//bounce the text off the walls
-			if ((TextLocation.X - 256) <= 0)
-			{
-				TextDirection.X = TextVelocity;
-			}
-			else if ((TextLocation.X + 256) >= Resolution.ScreenArea.Right)
-			{
-				TextDirection.X = -TextVelocity;
-			}
+				//bounce the text off the walls
+				if ((TextLocation.X - 256) <= 0)
+				{
+					TextDirection.X = TextVelocity;
+				}
+				else if ((TextLocation.X + 256) >= Resolution.ScreenArea.Right)
+				{
+					TextDirection.X = -TextVelocity;
+				}
 
-			if (TextLocation.Y <= 0)
-			{
-				TextDirection.Y = TextVelocity;
-			}
-			else if ((TextLocation.Y + 128) >= Resolution.ScreenArea.Bottom)
-			{
-				TextDirection.Y = -TextVelocity;
+				if (TextLocation.Y <= 0)
+				{
+					TextDirection.Y = TextVelocity;
+				}
+				else if ((TextLocation.Y + 128) >= Resolution.ScreenArea.Bottom)
+				{
+					TextDirection.Y = -TextVelocity;
+				}
 			}
 		}
 
@@ -106,23 +122,18 @@ namespace InsertCoinBuddyExample
 
 		public void HandleInput(InputState input)
 		{
-			//Listen for P1 game start...
-			if (input.IsNewKeyPress(Keys.Q))
+			if (IsActive)
 			{
-				if (_insertCoinComponent.JoinGame(PlayerIndex.One, true))
+				//Listen for P1 game start...
+				if (input.IsNewKeyPress(Keys.Q))
 				{
-					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_insertCoinComponent));
-					_insertCoinComponent.GameInPlay = true;
+					_insertCoinComponent.PlayerButtonPressed(PlayerIndex.One);
 				}
-			}
 
-			//Listen for P2 game start...
-			if (input.IsNewKeyPress(Keys.W))
-			{
-				if (_insertCoinComponent.JoinGame(PlayerIndex.Two, true))
+				//Listen for P2 game start...
+				if (input.IsNewKeyPress(Keys.W))
 				{
-					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen(_insertCoinComponent));
-					_insertCoinComponent.GameInPlay = true;
+					_insertCoinComponent.PlayerButtonPressed(PlayerIndex.Two);
 				}
 			}
 
@@ -133,8 +144,13 @@ namespace InsertCoinBuddyExample
 				LoadingScreen.Load(ScreenManager, true, null, ScreenManager.MainMenuStack());
 
 				//the game isn't playing anymore
-				_insertCoinComponent.GameInPlay = false;
+				_insertCoinComponent.GameFinished();
 			}
+		}
+
+		public void OnStartGame(object obj, GameStartEventArgs e)
+		{
+			ScreenManager.AddScreen(new NewChallengerScreen(), null);
 		}
 
 		#endregion

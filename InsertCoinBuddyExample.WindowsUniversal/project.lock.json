@@ -77,7 +77,7 @@
           "lib/uap10.0/InputHelper.WindowsUniversal.dll": {}
         }
       },
-      "InsertCoinBuddy/1.0.16": {
+      "InsertCoinBuddy/1.0.25": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -125,7 +125,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.33": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -2583,7 +2583,7 @@
           "lib/uap10.0/InputHelper.WindowsUniversal.dll": {}
         }
       },
-      "InsertCoinBuddy/1.0.16": {
+      "InsertCoinBuddy/1.0.25": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -2631,7 +2631,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.33": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -5197,7 +5197,7 @@
           "lib/uap10.0/InputHelper.WindowsUniversal.dll": {}
         }
       },
-      "InsertCoinBuddy/1.0.16": {
+      "InsertCoinBuddy/1.0.25": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -5245,7 +5245,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.33": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -7850,7 +7850,7 @@
           "lib/uap10.0/InputHelper.WindowsUniversal.dll": {}
         }
       },
-      "InsertCoinBuddy/1.0.16": {
+      "InsertCoinBuddy/1.0.25": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -7898,7 +7898,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.33": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -10473,7 +10473,7 @@
           "lib/uap10.0/InputHelper.WindowsUniversal.dll": {}
         }
       },
-      "InsertCoinBuddy/1.0.16": {
+      "InsertCoinBuddy/1.0.25": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -10521,7 +10521,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.33": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -13135,7 +13135,7 @@
           "lib/uap10.0/InputHelper.WindowsUniversal.dll": {}
         }
       },
-      "InsertCoinBuddy/1.0.16": {
+      "InsertCoinBuddy/1.0.25": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -13183,7 +13183,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.33": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -15758,7 +15758,7 @@
           "lib/uap10.0/InputHelper.WindowsUniversal.dll": {}
         }
       },
-      "InsertCoinBuddy/1.0.16": {
+      "InsertCoinBuddy/1.0.25": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -15806,7 +15806,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.33": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -18427,11 +18427,11 @@
         "lib/uap10.0/InputHelper.WindowsUniversal.pdb"
       ]
     },
-    "InsertCoinBuddy/1.0.16": {
-      "sha512": "w5d35QVg8O0OLKkMIsd3zjqAtC+eivqFS7K2iHpCvVELVExLxpK5XMGroB4UTQjIAWZKW80jKOP6IAO5IYSepg==",
+    "InsertCoinBuddy/1.0.25": {
+      "sha512": "B1J1AWCqapX+3BzfoH4t0KLdiMjYTtamsDYJaM7fidT7Hw/fa8wR7c3goymuhy3wVs8rPyG/G+WPvgLJ3fYraQ==",
       "type": "package",
       "files": [
-        "InsertCoinBuddy.1.0.16.nupkg.sha512",
+        "InsertCoinBuddy.1.0.25.nupkg.sha512",
         "InsertCoinBuddy.nuspec",
         "content/Settings.db",
         "lib/MonoAndroid10/InsertCoinBuddy.Android.dll",
@@ -18460,11 +18460,11 @@
         "lib/uap10.0/MatrixExtensions.WindowsUniversal.pdb"
       ]
     },
-    "MenuBuddy/1.0.32": {
-      "sha512": "P+QT1ULUwUFlB0pdAombm/y+TfPA1qOBoMIeG+WstAehSPavlHe5eUTx/Nqu7/4bO4Vc05W3w/MGe1B2E7K4/g==",
+    "MenuBuddy/1.0.33": {
+      "sha512": "0KihDtyXU4TNab5SfNJnjJ10ZQCFjr6QQ4zvn9kY0oOpW84ayVowWLdeBxrOKs95MZRfAoopa64wIk/pzk25Xg==",
       "type": "package",
       "files": [
-        "MenuBuddy.1.0.32.nupkg.sha512",
+        "MenuBuddy.1.0.33.nupkg.sha512",
         "MenuBuddy.nuspec",
         "lib/MonoAndroid10/MenuBuddy.Android.dll",
         "lib/MonoAndroid10/MenuBuddy.Android.pdb",
@@ -24727,9 +24727,9 @@
       "GameTimer >= 1.0.1",
       "HadoukInput >= 1.0.2",
       "InputHelper >= 1.0.17",
-      "InsertCoinBuddy >= 1.0.16",
+      "InsertCoinBuddy >= 1.0.25",
       "MatrixExtensions >= 1.0.1",
-      "MenuBuddy >= 1.0.32",
+      "MenuBuddy >= 1.0.33",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
       "MonoGame.Framework.WindowsUniversal >= 3.5.1.1679",
       "MouseBuddy >= 1.0.7",
