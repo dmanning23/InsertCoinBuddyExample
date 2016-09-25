@@ -85,6 +85,10 @@
       <HintPath>..\packages\InputHelper.1.0.17\lib\net451\InputHelper.DesktopGL.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="InsertCoinBuddy.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\InsertCoinBuddy.1.0.25\lib\net451\InsertCoinBuddy.DesktopGL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MatrixExtensions.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MatrixExtensions.1.0.1\lib\net451\MatrixExtensions.DesktopGL.dll</HintPath>
       <Private>True</Private>
@@ -169,15 +173,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Settings.db" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\InsertCoinBuddy\InsertCoinBuddy\InsertCoinBuddy.DesktopGL\InsertCoinBuddy.DesktopGL.csproj">
-      <Project>{1ee34288-db34-43e6-8717-e9e8f14207f0}</Project>
-      <Name>InsertCoinBuddy.DesktopGL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="..\InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

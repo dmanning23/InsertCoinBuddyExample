@@ -67,7 +67,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="InsertCoinBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\InsertCoinBuddy.1.0.24\lib\MonoAndroid10\InsertCoinBuddy.Android.dll</HintPath>
+      <HintPath>..\packages\InsertCoinBuddy.1.0.25\lib\MonoAndroid10\InsertCoinBuddy.Android.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MatrixExtensions.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

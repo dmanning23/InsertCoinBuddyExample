@@ -25,14 +25,16 @@ namespace InsertCoinBuddyExample
 
 		public override void LoadContent()
 		{
+			base.LoadContent();
+
 			_insertCoinComponent = ScreenManager.Game.Services.GetService(typeof(IInsertCoinComponent)) as IInsertCoinComponent;
 			_insertCoinComponent.Credits.OnGameStart += OnStartGame;
-
-			base.LoadContent();
 		}
 
 		public override void UnloadContent()
 		{
+			base.UnloadContent();
+
 			_insertCoinComponent.Credits.OnGameStart -= OnStartGame;
 		}
 

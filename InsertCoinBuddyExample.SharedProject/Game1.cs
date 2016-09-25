@@ -76,8 +76,5 @@ namespace InsertCoinBuddyExample
 		{
 			return new IScreen[] { new BackgroundScreen(), new MainMenuScreen() };
 		}
-
-		
 	}
 }
-
