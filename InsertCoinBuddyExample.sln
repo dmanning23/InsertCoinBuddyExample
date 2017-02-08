@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertCoinBuddyExample.DesktopGL", "InsertCoinBuddyExample.DesktopGL\InsertCoinBuddyExample.DesktopGL.csproj", "{0A61F321-A73C-4A5D-A522-7D7A51FCB64F}"
 EndProject
@@ -15,11 +15,10 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "InsertCoinBuddyExample.Shar
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{f0f7edb5-e520-44e7-ab47-d57ee136ca36}*SharedItemsImports = 13
 		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{0a61f321-a73c-4a5d-a522-7d7a51fcb64f}*SharedItemsImports = 4
-		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{c9b40b27-24da-4214-90e4-0b6199d698f2}*SharedItemsImports = 4
-		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{59476258-ed1d-4ecd-b7de-b7092cdf37de}*SharedItemsImports = 4
 		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{605a062b-b866-4134-a71c-f1d87054e6d8}*SharedItemsImports = 4
+		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{c9b40b27-24da-4214-90e4-0b6199d698f2}*SharedItemsImports = 4
+		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{f0f7edb5-e520-44e7-ab47-d57ee136ca36}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
