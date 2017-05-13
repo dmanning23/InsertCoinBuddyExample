@@ -13,9 +13,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertCoinBuddyExample.Wind
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "InsertCoinBuddyExample.SharedProject", "InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.shproj", "{F0F7EDB5-E520-44E7-AB47-D57EE136CA36}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "InsertCoinBuddy.SharedProject", "..\InsertCoinBuddy\InsertCoinBuddy\InsertCoinBuddy.SharedProject\InsertCoinBuddy.SharedProject.shproj", "{1AC47BFB-72BE-4390-B940-53FD57492599}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{0a61f321-a73c-4a5d-a522-7d7a51fcb64f}*SharedItemsImports = 4
+		..\InsertCoinBuddy\InsertCoinBuddy\InsertCoinBuddy.SharedProject\InsertCoinBuddy.SharedProject.projitems*{1ac47bfb-72be-4390-b940-53fd57492599}*SharedItemsImports = 13
+		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{59476258-ed1d-4ecd-b7de-b7092cdf37de}*SharedItemsImports = 4
+		..\InsertCoinBuddy\InsertCoinBuddy\InsertCoinBuddy.SharedProject\InsertCoinBuddy.SharedProject.projitems*{59476258-ed1d-4ecd-b7de-b7092cdf37de}*SharedItemsImports = 4
 		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{605a062b-b866-4134-a71c-f1d87054e6d8}*SharedItemsImports = 4
 		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{c9b40b27-24da-4214-90e4-0b6199d698f2}*SharedItemsImports = 4
 		InsertCoinBuddyExample.SharedProject\InsertCoinBuddyExample.SharedProject.projitems*{f0f7edb5-e520-44e7-ab47-d57ee136ca36}*SharedItemsImports = 13
@@ -158,8 +163,6 @@ Global
 		{C9B40B27-24DA-4214-90E4-0B6199D698F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C9B40B27-24DA-4214-90E4-0B6199D698F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9B40B27-24DA-4214-90E4-0B6199D698F2}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{C9B40B27-24DA-4214-90E4-0B6199D698F2}.Debug|ARM.Build.0 = Debug|Any CPU
-		{C9B40B27-24DA-4214-90E4-0B6199D698F2}.Debug|ARM.Deploy.0 = Debug|Any CPU
 		{C9B40B27-24DA-4214-90E4-0B6199D698F2}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{C9B40B27-24DA-4214-90E4-0B6199D698F2}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{C9B40B27-24DA-4214-90E4-0B6199D698F2}.Debug|iPhone.Deploy.0 = Debug|Any CPU

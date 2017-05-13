@@ -1,13 +1,6 @@
-﻿using System;
-using FontBuddyLib;
-using HadoukInput;
-using InsertCoinBuddy;
-using MenuBuddy;
+﻿using MenuBuddy;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using ResolutionBuddy;
-using System.Threading;
 
 namespace InsertCoinBuddyExample
 {
@@ -16,12 +9,6 @@ namespace InsertCoinBuddyExample
 	/// </summary>
 	internal class NewChallengerScreen : WidgetScreen
 	{
-		#region Fields
-		
-		IInsertCoinComponent _insertCoinComponent;
-
-		#endregion //Fields
-
 		#region Initialization
 
 		/// <summary>
