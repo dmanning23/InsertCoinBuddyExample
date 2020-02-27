@@ -48,8 +48,6 @@ namespace InsertCoinBuddyExample.Android
 			global::RandomExtensions.Android.Resource.String.Hello = global::InsertCoinBuddyExample.Android.Resource.String.Hello;
 			global::ResolutionBuddy.Android.Resource.String.ApplicationName = global::InsertCoinBuddyExample.Android.Resource.String.ApplicationName;
 			global::ResolutionBuddy.Android.Resource.String.Hello = global::InsertCoinBuddyExample.Android.Resource.String.Hello;
-			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::InsertCoinBuddyExample.Android.Resource.String.ApplicationName;
-			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::InsertCoinBuddyExample.Android.Resource.String.Hello;
 			global::SQLiteConnectionBuddy.Android.Resource.String.ApplicationName = global::InsertCoinBuddyExample.Android.Resource.String.ApplicationName;
 			global::SQLiteConnectionBuddy.Android.Resource.String.Hello = global::InsertCoinBuddyExample.Android.Resource.String.Hello;
 			global::StateMachineBuddy.Android.Resource.String.ApplicationName = global::InsertCoinBuddyExample.Android.Resource.String.ApplicationName;
@@ -78,11 +76,11 @@ namespace InsertCoinBuddyExample.Android
 		public partial class Drawable
 		{
 			
-			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			// aapt resource value: 0x7F010000
+			public const int Icon = 2130771968;
 			
-			// aapt resource value: 0x7f020001
-			public const int Splash = 2130837505;
+			// aapt resource value: 0x7F010001
+			public const int Splash = 2130771969;
 			
 			static Drawable()
 			{
@@ -97,11 +95,11 @@ namespace InsertCoinBuddyExample.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f030001
-			public const int ApplicationName = 2130903041;
+			// aapt resource value: 0x7F020000
+			public const int ApplicationName = 2130837504;
 			
-			// aapt resource value: 0x7f030000
-			public const int Hello = 2130903040;
+			// aapt resource value: 0x7F020001
+			public const int Hello = 2130837505;
 			
 			static String()
 			{
@@ -116,8 +114,8 @@ namespace InsertCoinBuddyExample.Android
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int Theme_Splash = 2130968576;
+			// aapt resource value: 0x7F030000
+			public const int Theme_Splash = 2130903040;
 			
 			static Style()
 			{

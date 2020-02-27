@@ -1,20 +1,19 @@
-using HadoukInput;
+using InputHelper;
 using InsertCoinBuddy;
 using MenuBuddy;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
+using System.Threading.Tasks;
 
 namespace InsertCoinBuddyExample
 {
 	/// <summary>
 	/// The main menu screen is the first thing displayed when the game starts up.
 	/// </summary>
-	public class MainMenuScreen : MenuScreen, IMainMenu, IGameScreen
+	public class MainMenuScreen : MenuScreen, IMainMenu
 	{
 		/// <summary>
 		/// The credit manager.
 		/// </summary>
-		private IInsertCoinComponent _insertCoinComponent;
+		private IInsertCoinService _service;
 
 		/// <summary>
 		/// Constructor fills in the menu contents.
@@ -23,44 +22,29 @@ namespace InsertCoinBuddyExample
 		{
 		}
 
-		public override void LoadContent()
+		public override async Task LoadContent()
 		{
-			base.LoadContent();
+			await base.LoadContent();
 
-			_insertCoinComponent = ScreenManager.Game.Services.GetService(typeof(IInsertCoinComponent)) as IInsertCoinComponent;
-			_insertCoinComponent.Credits.OnGameStart += OnStartGame;
+			_service = ScreenManager.Game.Services.GetService<IInsertCoinService>();
+			_service.OnGameStart += OnStartGame;
 		}
 
 		public override void UnloadContent()
 		{
 			base.UnloadContent();
 
-			_insertCoinComponent.Credits.OnGameStart -= OnStartGame;
+			_service.OnGameStart -= OnStartGame;
 		}
 
-		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
+		public async void OnStartGame(object obj, GameStartEventArgs e)
 		{
-			base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
+			ScreenManager.PopToScreen<BackgroundScreen>();
+			await LoadingScreen.Load(ScreenManager, new GameplayScreen());
 		}
 
-		public void HandleInput(InputState input)
+		public override void Cancelled(object obj, ClickEventArgs e)
 		{
-			//Listen for P1 game start...
-			if (input.IsNewKeyPress(Keys.Q))
-			{
-				_insertCoinComponent.PlayerButtonPressed(PlayerIndex.One);
-			}
-
-			//Listen for P2 game start...
-			if (input.IsNewKeyPress(Keys.W))
-			{
-				_insertCoinComponent.PlayerButtonPressed(PlayerIndex.Two);
-			}
-		}
-
-		public void OnStartGame(object obj, GameStartEventArgs e)
-		{
-			LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen());
 		}
 	}
 }

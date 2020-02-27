@@ -1,9 +1,9 @@
-using System;
-using ResolutionBuddy;
 using FontBuddyLib;
 using MenuBuddy;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ResolutionBuddy;
+using System.Threading.Tasks;
 
 namespace InsertCoinBuddyExample
 {
@@ -12,17 +12,17 @@ namespace InsertCoinBuddyExample
 	/// It draws a background image that remains fixed in place regardless
 	/// of whatever transitions the screens on top of it may be doing.
 	/// </summary>
-	internal class BackgroundScreen : Screen
+	public class BackgroundScreen : Screen
 	{
-		#region Member Variables
+		#region Properties
 
-		private readonly FontBuddy _dannobotText;
+		private FontBuddy _dannobotText;
 
-		private readonly RainbowTextBuddy _titleText;
+		private RainbowTextBuddy _titleText;
 
-		#endregion //Member Variables
+		#endregion //Properties
 
-		#region Initialization
+		#region Methods
 
 		/// <summary>
 		/// Constructor.
@@ -31,9 +31,6 @@ namespace InsertCoinBuddyExample
 		{
 			Transition.OnTime = 0.5f;
 			Transition.OffTime = 0.5f;
-
-			_titleText = new RainbowTextBuddy();
-			_dannobotText = new FontBuddy();
 		}
 
 		/// <summary>
@@ -43,28 +40,21 @@ namespace InsertCoinBuddyExample
 		/// used the shared ContentManager provided by the Game class, the content
 		/// would remain loaded forever.
 		/// </summary>
-		public override void LoadContent()
+		public override async Task LoadContent()
 		{
-			_titleText.Font = ScreenManager.Game.Content.Load<SpriteFont>(@"Fonts\ArialBlack48");
-			_titleText.ShadowOffset = new Vector2(-5.0f, 3.0f);
-			_titleText.ShadowSize = 1.025f;
-			_titleText.RainbowSpeed = 4.0f;
+			await base.LoadContent();
 
-			_dannobotText.Font = ScreenManager.Game.Content.Load<SpriteFont>(@"Fonts\ArialBlack24");
+			_titleText = new RainbowTextBuddy()
+			{
+				ShadowOffset = new Vector2(-5.0f, 3.0f),
+				ShadowSize = 1.025f,
+				RainbowSpeed = 4.0f,
+			};
+			_titleText.LoadContent(Content, @"Fonts\ArialBlack48");
 
-			base.LoadContent();
+			_dannobotText = new FontBuddy();
+			_dannobotText.LoadContent(Content, @"Fonts\ArialBlack24");
 		}
-
-		/// <summary>
-		/// Unloads graphics content for this screen.
-		/// </summary>
-		public override void UnloadContent()
-		{
-		}
-
-		#endregion
-
-		#region Update and Draw
 
 		/// <summary>
 		/// Draws the background screen.
@@ -90,7 +80,7 @@ namespace InsertCoinBuddyExample
 			//draw "dannobot games"
 			_dannobotText.Write("@DannobotGames",
 							   new Vector2((Resolution.TitleSafeArea.Right * 0.97f),
-										   ((Resolution.TitleSafeArea.Bottom) - (_dannobotText.Font.MeasureString("@DannobotGames").Y * 0.65f))),
+										   ((Resolution.TitleSafeArea.Bottom) - (_dannobotText.MeasureString("@DannobotGames").Y * 0.65f))),
 							   Justify.Right,
 							   0.5f,
 							   new Color(0.85f, 0.85f, 0.85f, Transition.Alpha),
@@ -100,6 +90,6 @@ namespace InsertCoinBuddyExample
 			ScreenManager.SpriteBatchEnd();
 		}
 
-		#endregion
+		#endregion //Methods
 	}
 }

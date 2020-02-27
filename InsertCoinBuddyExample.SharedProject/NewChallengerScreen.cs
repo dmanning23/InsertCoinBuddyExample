@@ -1,13 +1,14 @@
 ﻿using MenuBuddy;
 using Microsoft.Xna.Framework;
 using ResolutionBuddy;
+using System.Threading.Tasks;
 
 namespace InsertCoinBuddyExample
 {
 	/// <summary>
 	/// This screen is displayed when a second player joins a game, displays some text, and starts a new 2p game.
 	/// </summary>
-	internal class NewChallengerScreen : WidgetScreen
+	public class NewChallengerScreen : WidgetScreen
 	{
 		#region Initialization
 
@@ -25,13 +26,13 @@ namespace InsertCoinBuddyExample
 
 		#region Methods
 
-		public override void LoadContent()
+		public override async Task LoadContent()
 		{
-			base.LoadContent();
+			await base.LoadContent();
 
-			var text = new Label("Here Comes A New Challenger!", FontSize.Medium)
+			var text = new Label("Here Comes A New Challenger!", Content, FontSize.Medium)
 			{
-				Transition = new WipeTransitionObject(TransitionWipeType.PopTop),
+				TransitionObject = new WipeTransitionObject(TransitionWipeType.PopTop),
 				Position = Resolution.ScreenArea.Center,
 				Horizontal = HorizontalAlignment.Center,
 				Vertical = VerticalAlignment.Center
@@ -47,7 +48,7 @@ namespace InsertCoinBuddyExample
 			{
 				if (Time.CurrentTime >= 4f)
 				{
-					LoadingScreen.Load(ScreenManager, true, null, new GameplayScreen());
+					LoadingScreen.Load(ScreenManager, new GameplayScreen());
 				}
 			}
 		}

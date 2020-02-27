@@ -1,3 +1,4 @@
+using HadoukInput;
 using InputHelper;
 using InsertCoinBuddy;
 using MenuBuddy;
@@ -14,7 +15,7 @@ namespace InsertCoinBuddyExample
 		/// <summary>
 		/// The credit manager.
 		/// </summary>
-		private IInsertCoinComponent _insertCoin;
+		private InsertCoinComponent _insertCoin;
 
 		/// <summary>
 		/// Component used to save system settings
@@ -24,11 +25,15 @@ namespace InsertCoinBuddyExample
 		public Game1()
 		{
 			//FullScreen = true;
+			Mappings.UseKeyboard[0] = true;
+			Mappings.UseKeyboard[1] = true;
+			Mappings.KeyMaps[0].UseIpacMappings(0);
+			Mappings.KeyMaps[1].UseIpacMappings(1);
 
 			var debug = new DebugInputComponent(this, ResolutionBuddy.Resolution.TransformationMatrix);
 
 			//Setup the credits manager.
-			var insertCoin = new InsertCoinComponent(this, "coindrop", "gamestart", 3); //$.75 per game
+			var insertCoin = new InsertCoinComponent(this, 3, 2); //$.75 per game
 			_insertCoin = insertCoin;
 
 			//Add the settings manager
@@ -37,10 +42,10 @@ namespace InsertCoinBuddyExample
 
 		protected override void LoadContent()
 		{
-			// Activate the first screens.
-			ScreenManager.SetTopScreen(new InsertCoinScreen(@"Fonts\ArialBlack24", @"Fonts\ArialBlack24", _insertCoin), null);
-
 			base.LoadContent();
+
+			// Activate the first screens.
+			ScreenManager.SetTopScreen(new InsertCoinScreen(@"Fonts\ArialBlack24", @"Fonts\ArialBlack24", "coindrop",  "gamestart"), null);
 		}
 
 		protected override void Initialize()

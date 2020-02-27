@@ -1,22 +1,20 @@
-using System;
 using FontBuddyLib;
 using HadoukInput;
 using InsertCoinBuddy;
 using MenuBuddy;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ResolutionBuddy;
-using System.Threading;
+using System.Threading.Tasks;
 
 namespace InsertCoinBuddyExample
 {
 	/// <summary>
 	/// This screen displays on top of all the other screens
 	/// </summary>
-	internal class GameplayScreen : Screen, IGameScreen
+	public class GameplayScreen : Screen, IGameScreen
 	{
-		#region Fields
+		#region Properties
 
 		const float TextVelocity = 3.0f;
 
@@ -35,11 +33,11 @@ namespace InsertCoinBuddyExample
 		/// </summary>
 		FontBuddy Text;
 
-		IInsertCoinComponent _insertCoinComponent;
+		IInsertCoinService _service;
 
-		#endregion //Fields
+		#endregion //Properties
 
-		#region Initialization
+		#region Methods
 
 		/// <summary>
 		/// Constructor fills in the menu contents.
@@ -48,31 +46,26 @@ namespace InsertCoinBuddyExample
 		{
 			TextLocation = new Vector2(Resolution.TitleSafeArea.Center.X, Resolution.TitleSafeArea.Center.Y);
 			TextDirection = new Vector2(TextVelocity, TextVelocity);
-			Text = new FontBuddy();
 
 			CoveredByOtherScreens = false;
 		}
 
-		#endregion //Initialization
-
-		#region Methods
-
-		public override void LoadContent()
+		public override async Task LoadContent()
 		{
-			base.LoadContent();
+			await base.LoadContent();
 
-			_insertCoinComponent = ScreenManager.Game.Services.GetService(typeof(IInsertCoinComponent)) as IInsertCoinComponent;
-			_insertCoinComponent.Credits.OnGameStart += OnStartGame;
+			_service = ScreenManager.Game.Services.GetService<IInsertCoinService>();
+			_service.OnGameStart += OnStartGame;
 
-			//Thread.Sleep(2000);
-			Text.Font = ScreenManager.Game.Content.Load<SpriteFont>(@"Fonts\ArialBlack72");
+			Text = new FontBuddy();
+			Text.LoadContent(Content, @"Fonts\ArialBlack72");
 		}
 
 		public override void UnloadContent()
 		{
 			base.UnloadContent();
 
-			_insertCoinComponent.Credits.OnGameStart -= OnStartGame;
+			_service.OnGameStart -= OnStartGame;
 		}
 
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
@@ -120,37 +113,27 @@ namespace InsertCoinBuddyExample
 			ScreenManager.SpriteBatchEnd();
 		}
 
-		public void HandleInput(InputState input)
+		public void HandleInput(IInputState input)
 		{
+			var inputState = input as InputState;
 			if (IsActive)
 			{
-				//Listen for P1 game start...
-				if (input.IsNewKeyPress(Keys.Q))
+				//does the uesr want to exit?
+				if (inputState.IsNewKeyPress(Keys.Space))
 				{
-					_insertCoinComponent.PlayerButtonPressed(PlayerIndex.One);
+					//Load the main menu back up
+					ScreenManager.PopToScreen<BackgroundScreen>();
+					LoadingScreen.Load(ScreenManager, ScreenManager.MainMenuStack());
+
+					//the game isn't playing anymore
+					_service.CurrentGameState = GameState.Menu;
 				}
-
-				//Listen for P2 game start...
-				if (input.IsNewKeyPress(Keys.W))
-				{
-					_insertCoinComponent.PlayerButtonPressed(PlayerIndex.Two);
-				}
-			}
-
-			//does the uesr want to exit?
-			if (input.IsNewKeyPress(Keys.Space))
-			{
-				//Load the main menu back up
-				LoadingScreen.Load(ScreenManager, true, null, ScreenManager.MainMenuStack());
-
-				//the game isn't playing anymore
-				_insertCoinComponent.GameFinished();
 			}
 		}
 
-		public void OnStartGame(object obj, GameStartEventArgs e)
+		public async void OnStartGame(object obj, GameStartEventArgs e)
 		{
-			ScreenManager.AddScreen(new NewChallengerScreen(), null);
+			await ScreenManager.AddScreen(new NewChallengerScreen(), null);
 		}
 
 		#endregion
