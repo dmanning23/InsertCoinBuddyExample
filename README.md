@@ -1,4 +1,5 @@
 InsertCoinBuddyExample
 ======================
 
-a quick game to show the "insert coin" screen
+This repo has been moved to:
+https://github.com/dmanning23/InsertCoinBuddy/tree/master/Example
